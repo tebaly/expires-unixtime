@@ -7,6 +7,7 @@ Find out if the time has expired
 import time from 'expires-unixtime';
 
 console.log(time.now()); // 1561555000
+
 console.log(time.left(1561555010)); // 10
 console.log(time.left(1561554990)); // -10
 
@@ -14,6 +15,9 @@ console.log(time.offset(1561554990)); // 10
 
 console.log(time.expired(1561555010)); // false
 console.log(time.expired(1561554990)); // true
+
+console.log(time.exceeded(1561554990, 15)); // false
+console.log(time.exceeded(1561554990, 5)); // true
 
 ```
 
@@ -23,6 +27,7 @@ console.log(time.expired(1561554990)); // true
 - time.left(time) - сколько осталось секунд до конца
 - time.offset(time) - сколько прошло секунд от начала
 - time.expired(time) - boolean, истекло ли время уже
+- time.exceeded(time, offset) - boolean, достигнут предел ожидания
 
 Дальше пакет используется для проверки валидности токена JWT по времени EXP (expiration time) 
 

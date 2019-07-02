@@ -13,4 +13,8 @@ export default {
   expired(time) {
     return this.left(time) < 1;
   },
+  exceeded(time, offset) {
+    return this.offset(time) > offset;
+  },
+  
 };
