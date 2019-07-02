@@ -10,6 +10,8 @@ console.log(time.now()); // 1561555000
 console.log(time.left(1561555010)); // 10
 console.log(time.left(1561554990)); // -10
 
+console.log(time.offset(1561554990)); // 10
+
 console.log(time.expired(1561555010)); // false
 console.log(time.expired(1561554990)); // true
 
@@ -19,6 +21,7 @@ console.log(time.expired(1561554990)); // true
 
 - time.now() - метка времени сейчас, unix timestamp
 - time.left(time) - сколько осталось секунд до конца
+- time.offset(time) - сколько прошло секунд от начала
 - time.expired(time) - boolean, истекло ли время уже
 
 Дальше пакет используется для проверки валидности токена JWT по времени EXP (expiration time) 

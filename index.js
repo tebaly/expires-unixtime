@@ -5,7 +5,10 @@ export default {
     return timestamp();
   },
   left(time) {
-    return 0 - timestamp(-time);
+    return 0 - this.offset(time);
+  },
+  offset(time) {
+    return timestamp(-time);
   },
   expired(time) {
     return this.left(time) < 1;
