@@ -1,20 +1,19 @@
-import timestamp from 'unix-timestamp-offset';
+var timestamp = require('unix-timestamp-offset');
 
-export default {
-  now() {
+module.exports =  {
+  now: function() {
     return timestamp();
   },
-  left(time) {
+  left: function(time) {
     return 0 - this.offset(time);
   },
-  offset(time) {
+  offset: function(time) {
     return timestamp(-time);
   },
-  expired(time) {
+  expired: function(time) {
     return this.left(time) < 1;
   },
-  exceeded(time, offset) {
+  exceeded: function(time, offset) {
     return this.offset(time) > offset;
   },
-  
 };
